@@ -47,7 +47,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen w-full flex flex-col bg-cover bg-center relative" style={{ backgroundImage: "url('/image2vector.svg')" }}>
+    <div className="min-h-screen w-full flex flex-col bg-cover bg-center relative" style={{ backgroundImage: "url('/chatgpt-bg.svg')" }}>
       <div className="bg-dark-overlay" />
       <div className="flex-1 w-full flex flex-col items-center px-2 pt-8 pb-4 sm:pt-8 sm:pb-32 max-w-md mx-auto z-10 overflow-y-auto" style={{ minHeight: '120px' }}>
         {lastQuestion && (
