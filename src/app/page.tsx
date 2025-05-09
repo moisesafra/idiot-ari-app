@@ -47,9 +47,9 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen w-full flex flex-col justify-between items-center bg-cover bg-center relative" style={{ backgroundImage: "url('/image2vector.svg')" }}>
+    <div className="min-h-screen w-full flex flex-col bg-cover bg-center relative" style={{ backgroundImage: "url('/image2vector.svg')" }}>
       <div className="bg-dark-overlay" />
-      <div className="w-full flex flex-col items-center px-2 pt-8 pb-4 sm:pt-8 sm:pb-32 max-w-md mx-auto z-10 fixed top-0 left-1/2 -translate-x-1/2 sm:static sm:translate-x-0" style={{ maxHeight: '40vh', minHeight: '120px' }}>
+      <div className="flex-1 w-full flex flex-col items-center px-2 pt-8 pb-4 sm:pt-8 sm:pb-32 max-w-md mx-auto z-10 overflow-y-auto" style={{ minHeight: '120px' }}>
         {lastQuestion && (
           <div className="w-full flex justify-end mb-2">
             <div className="bg-blue-600 text-white rounded-2xl rounded-br-sm px-4 py-2 max-w-[80%] text-base shadow-md">
@@ -75,7 +75,7 @@ export default function Home() {
         )}
         <div ref={chatEndRef} />
       </div>
-      <form onSubmit={handleSubmit} className="fixed bottom-0 left-0 w-full flex justify-center items-center px-2 py-4 bg-white/90 backdrop-blur shadow-lg border-t border-gray-200 z-20" style={{ zIndex: 10 }}>
+      <form onSubmit={handleSubmit} className="w-full flex justify-center items-center px-2 py-4 bg-white/90 backdrop-blur shadow-lg border-t border-gray-200 z-20" style={{ zIndex: 10 }}>
         <div className="w-full max-w-md flex items-center gap-2">
           <input
             type="text"
