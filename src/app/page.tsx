@@ -51,7 +51,7 @@ export default function Home() {
     <>
       <ViewportHeightSetter />
       <div
-        className="flex flex-col w-full bg-cover bg-center relative"
+        className="relative w-full bg-cover bg-center"
         style={{
           backgroundImage: "url('/chatgpt-bg.svg')",
           height: "100dvh",
@@ -60,8 +60,42 @@ export default function Home() {
           overflow: "hidden",
         }}
       >
-        <div className="bg-dark-overlay" />
-        <div className="flex-1 w-full flex flex-col items-center px-2 pt-8 pb-4 max-w-md mx-auto z-10 overflow-y-auto" style={{ minHeight: 0 }}>
+        <div className="bg-dark-overlay absolute inset-0 z-0" />
+        <div className="absolute inset-x-0 bottom-0 z-20 w-full bg-white/90 backdrop-blur shadow-lg border-t border-gray-200 flex justify-center items-center px-2 py-3">
+          <div className="w-full max-w-md flex items-center gap-2">
+            <input
+              type="text"
+              className="flex-1 rounded-full border border-gray-300 px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white shadow-sm"
+              placeholder="Ask your question..."
+              value={question}
+              onChange={handleInputChange}
+              disabled={loading}
+              autoFocus
+            />
+            <button
+              type="submit"
+              className="bg-blue-700 text-white rounded-full px-6 py-3 font-semibold hover:bg-blue-800 transition disabled:opacity-60 text-lg"
+              disabled={!question.trim() || loading}
+              onClick={handleSubmit}
+            >
+              {loading ? <span className="opacity-60">Send</span> : "Send"}
+            </button>
+          </div>
+        </div>
+        <div
+          className="flex flex-col items-center px-2 max-w-md mx-auto z-10 overflow-y-auto"
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 72, // height of input area in px (adjust if needed)
+            margin: "auto",
+            minHeight: 0,
+            paddingTop: 32,
+            paddingBottom: 16,
+          }}
+        >
           {lastQuestion && (
             <div className="w-full flex justify-end mb-2">
               <div className="bg-blue-600 text-white rounded-2xl rounded-br-sm px-4 py-2 max-w-[80%] text-base shadow-md">
@@ -87,26 +121,6 @@ export default function Home() {
           )}
           <div ref={chatEndRef} />
         </div>
-        <form onSubmit={handleSubmit} className="w-full flex justify-center items-center px-2 py-4 bg-white/90 backdrop-blur shadow-lg border-t border-gray-200 z-20">
-          <div className="w-full max-w-md flex items-center gap-2">
-            <input
-              type="text"
-              className="flex-1 rounded-full border border-gray-300 px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white shadow-sm"
-              placeholder="Ask your question..."
-              value={question}
-              onChange={handleInputChange}
-              disabled={loading}
-              autoFocus
-            />
-            <button
-              type="submit"
-              className="bg-blue-700 text-white rounded-full px-6 py-3 font-semibold hover:bg-blue-800 transition disabled:opacity-60 text-lg"
-              disabled={!question.trim() || loading}
-            >
-              {loading ? <span className="opacity-60">Send</span> : "Send"}
-            </button>
-          </div>
-        </form>
       </div>
     </>
   );
