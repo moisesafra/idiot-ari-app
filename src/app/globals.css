@@ -20,7 +20,7 @@
 }
 
 body {
-  background: url('/image2vector.svg') no-repeat center top;
+  background: url('/chatgpt-bg.svg') no-repeat center top;
   background-size: cover;
   min-height: 100vh;
   min-width: 100vw;

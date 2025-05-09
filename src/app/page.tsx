@@ -75,7 +75,7 @@ export default function Home() {
         )}
         <div ref={chatEndRef} />
       </div>
-      <form onSubmit={handleSubmit} className="w-full flex justify-center items-center px-2 py-4 bg-white/90 backdrop-blur shadow-lg border-t border-gray-200 z-20" style={{ zIndex: 10 }}>
+      <form onSubmit={handleSubmit} className="w-full flex justify-center items-center px-2 py-4 bg-white/90 backdrop-blur shadow-lg border-t border-gray-200 z-20">
         <div className="w-full max-w-md flex items-center gap-2">
           <input
             type="text"
