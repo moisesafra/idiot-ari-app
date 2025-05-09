@@ -20,7 +20,26 @@
 }
 
 body {
-  background: var(--background);
+  background: url('/image2vector.svg') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  min-width: 100vw;
+  position: relative;
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.bg-dark-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 20, 40, 0.45);
+  z-index: 0;
+}
+
+/* Chat overlay styles */
+.bg-overlay {
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.10);
+  padding: 2rem;
 }
