@@ -17,12 +17,9 @@ export default function Home() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!question.trim()) return;
-    // Clear previous Q&A only now
     setAnswer("");
-    setLastQuestion("");
-    setLoading(true);
     setLastQuestion(question);
-    setQuestion(""); // Clear input immediately after sending
+    setLoading(true);
     try {
       const res = await fetch("/api/insult", {
         method: "POST",
@@ -31,7 +28,7 @@ export default function Home() {
       });
       const data = await res.json();
       setAnswer(data.answer || "Idiot, Ari. Something went wrong.");
-    } catch (err) {
+    } catch {
       setAnswer("Idiot, Ari. Something went wrong.");
     } finally {
       setLoading(false);
@@ -39,6 +36,11 @@ export default function Home() {
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (answer) {
+      setQuestion("");
+      setAnswer("");
+      setLastQuestion("");
+    }
     setQuestion(e.target.value);
   };
 
