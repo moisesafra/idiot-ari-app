@@ -50,9 +50,18 @@ export default function Home() {
   return (
     <>
       <ViewportHeightSetter />
-      <div className="flex flex-col min-h-[100dvh] min-h-screen w-full bg-cover bg-center relative" style={{ backgroundImage: "url('/chatgpt-bg.svg')" }}>
+      <div
+        className="flex flex-col w-full bg-cover bg-center relative"
+        style={{
+          backgroundImage: "url('/chatgpt-bg.svg')",
+          height: "100dvh",
+          minHeight: "calc(var(--vh, 1vh) * 100)",
+          maxHeight: "100dvh",
+          overflow: "hidden",
+        }}
+      >
         <div className="bg-dark-overlay" />
-        <div className="flex-1 w-full flex flex-col items-center px-2 pt-8 pb-4 max-w-md mx-auto z-10 overflow-y-auto">
+        <div className="flex-1 w-full flex flex-col items-center px-2 pt-8 pb-4 max-w-md mx-auto z-10 overflow-y-auto" style={{ minHeight: 0 }}>
           {lastQuestion && (
             <div className="w-full flex justify-end mb-2">
               <div className="bg-blue-600 text-white rounded-2xl rounded-br-sm px-4 py-2 max-w-[80%] text-base shadow-md">
